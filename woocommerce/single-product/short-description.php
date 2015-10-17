@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-global $post, $a_settings;
+global $post;
 
 if ( ! $post->post_excerpt ) {
 	return;
@@ -22,6 +22,6 @@ if ( ! $post->post_excerpt ) {
 
 ?>
 <div itemprop="description">
-	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt . ' <a href="#tab-description">' . __( 'Continue reading', 'autodbalnia' ) . '</a>' )
+	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt . ' <a href="#tab-description">' . __( 'Continue reading', 'pbosfc' ) . '</a>' )
 	?>
 </div>

@@ -1,0 +1,128 @@
+
+/* Hack for Standard Widget Extensions to collapse selected widgets on start
+ * TODO: wypluc to z kodu w zaleznosci czy jest ten plugin wlaczony
+ */
+
+.widget_recently_viewed_products ul.product_list_widget {
+    display : none;
+}
+
+.widget_recent_reviews ul.product_list_widget {
+    display : none;
+}
+
+.widget_top_rated_products ul.product_list_widget {
+    display : none;
+}
+
+.widget_products ul.product_list_widget {
+    display : none;
+}
+
+/* MailPoet */
+
+.wysija-checkbox-label {
+    margin : 0.9em 0 0 0;
+}
+
+.wysija-checkbox-paragraph {
+    margin : 0.9em 0 0 0;
+}
+
+.wysija-after-comment {
+    margin : 3em 0 0 0
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    .wysija-checkbox-paragraph {
+        margin : 0.3em 0 0 0;
+    }
+
+    .wysija-after-comment {
+        margin : 0.9em 0 0 0
+    }
+
+}
+
+/* YITH Wishlist (and add-ons) */
+
+.woocommerce table.wishlist_table {
+    font-size     : 100%;
+    margin-bottom : 0;
+}
+
+.woocommerce table.wishlist_table thead th {
+    border-top : 0 solid;
+    padding    : 0 0 0 0;
+}
+
+.wishlist_table tr td,
+.wishlist_table tr th.wishlist-delete,
+.wishlist_table tr th.product-checkbox {
+    text-align : left;
+}
+
+.single_add_to_wishlist.button {
+    /* YITH Add to Wishlist button */
+    width : 50%;
+}
+
+.yith-wcwl-add-to-wishlist {
+    /* YITH Add to Wishlist text link */
+    text-align : center;
+}
+
+.yith-wcwl-share {
+    margin-bottom : 0;
+}
+
+.pbo_move_to_wishlist a {
+    font-size   : 0.9em;
+    font-weight : 400;
+}
+
+.pbo_move_to_wishlist_link_to_wishlist_page {
+    text-align : center;
+}
+
+/* Easy Social Share */
+
+ul.ess-buttons {
+    float        : right;
+    margin-top   : 0;
+    margin-right : 0.6em;
+}
+
+ul.ess-buttons li {
+    margin-right : 0.3em;
+}
+
+ul.ess-buttons a.ess-button {
+    padding-right  : 0;
+    padding-bottom : 0;
+}
+
+.ess-icon {
+    width      : 1.8em;
+    height     : 1.5em;
+    margin-top : 0.3em;
+}
+
+/* Favorites */
+
+.favorites-list {
+    font-size   : 1.2em;
+    margin-left : 1.5em;
+}
+
+.favorites-list li {
+    margin-bottom : 0.6em;
+}
+
+/* SearchWP Live Ajax Search */
+
+.searchwp-live-search-results-showing {
+    min-height : 3.3em;
+    max-height : 23.3em;
+}

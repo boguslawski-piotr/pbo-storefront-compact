@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: autodbalnia\n"
+"Project-Id-Version: PBO Storefront Compact\n"
 "POT-Creation-Date: 2015-10-13 00:45+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your Name <you@example.com>\n"

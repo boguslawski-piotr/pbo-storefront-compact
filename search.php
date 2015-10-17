@@ -35,7 +35,7 @@ get_header(); ?>
 				</article><!-- #post-## -->
 
 				<?php if ( 'post' != get_post_type() ) : ?>
-					<div class="a_search_post_divider"></div><?php endif ?>
+					<div class="pbosfc_search_post_divider"></div><?php endif ?>
 				<?php
 			endwhile;
 

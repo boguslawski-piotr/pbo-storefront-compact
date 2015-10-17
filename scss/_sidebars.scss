@@ -1,0 +1,332 @@
+/**
+ *
+ */
+
+.top-header-1-widget-region {
+    margin  : 0;
+    padding : 0;
+}
+
+.top-header-1-widget-region .widget {
+    margin    : 0;
+    padding   : 0;
+    font-size : 0.9em;
+}
+
+/**
+ *
+ */
+
+.top-header-2-widget-region {
+    margin  : 0;
+    padding : 0;
+}
+
+.top-header-2-widget-region .widget {
+    margin    : 0;
+    padding   : 0;
+    font-size : 0.9em;
+}
+
+/**
+ * This is a place for advertising, classifieds, messages, etc.
+ */
+
+.header-widget-region {
+    border-top  : 1px solid rgba(0, 0, 0, 0.1);
+    padding-top : $d4;
+}
+
+.homepage_slider {
+    margin-top    : 0;
+    margin-bottom : 0;
+}
+
+/**
+ *
+ */
+
+.bottom-header-1-widget-region {
+    border-top : 1px solid rgba(0, 0, 0, 0.1);
+    margin     : 0;
+    padding    : 0;
+}
+
+.bottom-header-1-widget-region .widget {
+    margin    : 0;
+    padding   : 0;
+    font-size : 0.9em;
+}
+
+/**
+ *
+ */
+
+.top-menu-wrap {
+    display : none;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    .top-menu-wrap {
+        display          : block;
+        background-color : #fcfcfc;
+    }
+
+    .left-top-menu-wrap {
+        position : relative;
+        float    : left;
+        width    : 50%;
+        margin   : 0 -0.3em 0 -0.3em;
+        /*border: 1px solid red;*/
+    }
+
+    .right-top-menu-wrap {
+        position : relative;
+        float    : left;
+        width    : 50%;
+        margin   : 0 -1.2em 0 0.9em;
+        /*border: 1px solid blue;*/
+    }
+
+    .left-top-menu,
+    .right-top-menu {
+        clear       : both;
+        display     : block;
+        width       : 100%;
+        margin      : 0 0 0 0;
+        line-height : 1.2em;
+    }
+
+    .left-top-menu ul,
+    .right-top-menu ul {
+        list-style : none;
+        margin     : 0 0 0 0;
+        padding    : 0 0 0 0;
+        display    : block;
+    }
+
+    .left-top-menu ul li,
+    .right-top-menu ul li {
+        position   : relative;
+        display    : inline-block;
+        text-align : left;
+    }
+
+    .left-top-menu ul li a,
+    .right-top-menu ul li a {
+        display : block;
+    }
+
+    .left-top-menu ul li a:before,
+    .right-top-menu ul li a:before {
+        display : none;
+    }
+
+    .left-top-menu ul li:hover > ul,
+    .left-top-menu ul li.focus > ul,
+    .right-top-menu ul li:hover > ul,
+    .right-top-menu ul li.focus > ul {
+        left    : 0;
+        display : block;
+    }
+
+    .left-top-menu ul li:hover > ul li > ul,
+    .left-top-menu ul li.focus > ul li > ul,
+    .right-top-menu ul li:hover > ul li > ul,
+    .right-top-menu ul li.focus > ul li > ul {
+        display : none;
+    }
+
+    .left-top-menu ul li:hover > ul li:hover > ul,
+    .left-top-menu ul li:hover > ul li.focus > ul,
+    .left-top-menu ul li.focus > ul li:hover > ul,
+    .left-top-menu ul li.focus > ul li.focus > ul,
+    .right-top-menu ul li:hover > ul li:hover > ul,
+    .right-top-menu ul li:hover > ul li.focus > ul,
+    .right-top-menu ul li.focus > ul li:hover > ul,
+    .right-top-menu ul li.focus > ul li.focus > ul {
+        left    : 100%;
+        top     : 0;
+        display : block;
+    }
+
+    .left-top-menu ul ul,
+    .right-top-menu ul ul {
+        float    : left;
+        position : absolute;
+        top      : 100%;
+        z-index  : 99999;
+        display  : none;
+    }
+
+    .left-top-menu ul ul li a,
+    .right-top-menu ul ul li a {
+        min-width : 10em;
+    }
+
+    .left-top-menu .menu {
+        font-size : 0.9em;
+        width     : auto;
+        float     : left;
+        /*margin: 0 0 0 0;*/
+    }
+
+    .right-top-menu .menu {
+        font-size : 0.9em;
+        width     : auto;
+        float     : right;
+        margin    : 0 0 0 0;
+    }
+
+    .left-top-menu .menu > li:hover > a,
+    .right-top-menu .menu > li:hover > a {
+        text-decoration : none;
+    }
+
+    .left-top-menu .menu > li > a,
+    .right-top-menu .menu > li > a {
+        position : relative;
+    }
+
+    .left-top-menu .menu > li.menu-item-has-children > a:after,
+    .right-top-menu .menu > li.menu-item-has-children > a:after {
+        /* Small sign (arrow pointing down) on menu item with submenu */
+        content     : "\f107";
+        font-family : "FontAwesome";
+        margin-left : 0.6em;
+        line-height : 1;
+        font-weight : inherit;
+    }
+
+    .left-top-menu .menu > li:first-child a:before,
+    .right-top-menu .menu > li:first-child a:before {
+        display : none;
+    }
+
+    .left-top-menu .menu a,
+    .right-top-menu .menu a {
+        font-weight : 400;
+        /*color: #96588a;*/
+        /*background-color: #fcfcfc;*/
+    }
+
+    .left-top-menu .menu a {
+        padding : 0.3em 0.3em 0.3em 0.3em;
+    }
+
+    .right-top-menu .menu a {
+        padding : 0.3em 0.3em 0.3em 0.3em;
+
+    }
+
+    .left-top-menu .menu a:hover,
+    .right-top-menu .menu a:hover {
+        text-decoration : none;
+        /*color: #96588a;*/
+        /*background-color: #fcfcfc;*/
+    }
+
+    .left-top-menu .menu ul a,
+    .right-top-menu .menu ul a {
+        padding : 0.6em 0.9em;
+        /*color: #96588a;*/
+        /*background-color: #fcfcfc;*/
+    }
+
+    .left-top-menu .menu ul a:hover,
+    .right-top-menu .menu ul a:hover {
+        /*color: #96588a;*/
+        /*background-color: #fcfcfc;*/
+    }
+}
+
+/**
+ * Sidebar
+ */
+
+.left-sidebar .widget-area {
+    margin-top : $d3;
+}
+
+.right-sidebar .widget-area {
+    margin-top : $d3;
+    font-size: 1em;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    .right-sidebar .content-area {
+        border-right : 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .left-sidebar .widget-area {
+        width        : 20%;
+        margin-right : 2%;
+    }
+
+    .left-sidebar .content-area {
+        border-left  : 1px solid rgba(0, 0, 0, 0.05);
+        padding-left : 1.8em;
+        width        : 78%;
+        margin-left  : 0;
+    }
+
+}
+
+/*
+ * Widgets (on sidebar(s)
+ */
+
+.widget h3.widget-title, .widget h2.widget-ttitle {
+    padding             : 0 0 0 0;
+    border-bottom-width : 1px;
+}
+
+//.widget_product_categories ul li {
+//    font-size : 16px;
+//}
+
+.widget {
+    margin : 0 0 1.8em;
+}
+
+.dropdown_product_tag, .dropdown_product_cat {
+    font-size      : 1.2em;
+    width          : 100%;
+    padding-top    : 0.2em;
+    padding-bottom : 0.2em;
+}
+
+/* Cart widget tweaks ;)
+*/
+
+.widget_shopping_cart li {
+    font-size : 0.8em;
+}
+
+.widget_shopping_cart .product_list_widget li {
+    padding-left  : 0.63em;
+    padding-right : 0.63em;
+}
+
+.widget_shopping_cart .product_list_widget li .quantity {
+    padding-left : 1.7em;
+    float        : right;
+}
+
+.widget_shopping_cart .product_list_widget li .variation {
+    margin-bottom : -2em;
+    margin-top    : -1em;
+    padding-left  : 2em;
+}
+
+.widget_shopping_cart .product_list_widget li .variation-pojemno {
+    margin-bottom : -1em;
+    margin-top    : 0.2em;
+    padding-left  : 2em;
+}
+
+.widget_shopping_cart .pbo_move_to_wishlist {
+    margin-left : 1.6em;
+}

@@ -1,0 +1,408 @@
+/*
+ Theme Name:   PBO Storefront Compact
+ Theme URI:
+ Description:  ...
+ Author:       Piotr Boguslawski
+ Author URI:
+ Template:     storefront
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         black, white, light, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, featured-images, full-width-template, threaded-comments, accessibility-ready, rtl-language-support, woocommerce
+
+ Text Domain:  storefront
+ Text Domain:  pbosfc
+*/
+
+/*
+ autodbalnia.pl special accent color ;) is: #f57314;
+*/
+
+$d1 : 0.3em;
+$d2 : $d1 * 2;
+$d3 : $d1 * 3;
+$d4 : $d1 * 4;
+$d5 : $d1 * 5;
+$d6 : $d1 * 6;
+
+$min_width_for_desktop : 768px;
+
+@import 'scss/common';
+@import 'scss/sidebars';
+@import 'scss/header';
+@import "scss/plugins";
+@import 'scss/footer';
+
+/**
+ * Everything between header and footer
+ */
+
+.site-content {
+    border-top    : 1px solid rgba(0, 0, 0, 0.1);
+    padding       : $d5 0 $d4 0;
+    margin-top    : 0;
+    margin-bottom : 0;
+}
+
+/* Breadcrumb area */
+.woocommerce-breadcrumb {
+    padding : 0 0 $d2 0;
+    margin  : 0 0 $d3 0;
+}
+
+/* Content (excluding sidebar) */
+.site-main {
+    margin-bottom : 0;
+}
+
+.content-area, .widget-area {
+    margin-bottom : 0;
+}
+
+.hentry {
+    margin-bottom  : 0;
+    padding-bottom : 0;
+    border-bottom  : 0;
+}
+
+/**
+ * Paragraph/post/page/etc. headers:
+ *
+ * page:             page|hentry -> entry-header -> h1 entry-title -> entry-content
+ * post (on list):
+ * post (single):    post -> entry-header -> h1 entry-title -> posted-on -> byline -> entry-meta -> entry-content
+ * products (many) : product -> h1 page-title -> storefront-sorting -> products -> storefront-sorting
+ */
+
+h1, h2, h3, h4 {
+    margin : 0 0 $d1 0;
+}
+
+.hentry .entry-header,
+.product .entry-header {
+    margin-bottom : $d1;
+    border-bottom : 0;
+}
+
+h1.page-title,
+.hentry .entry-header h1,
+.post .entry-header h1,
+.product .entry-header h1 {
+    margin         : 0 0 $d2 0;
+    border-bottom  : 1px solid rgba(0, 0, 0, .05);
+    padding-bottom : 0;
+}
+
+.post .entry-header h1 {
+    /* because of posted-on and byline -> inside entry-header span */
+    margin : 0 0 0 0;
+}
+
+/* Posts and pages meta */
+
+.hentry .entry-header .posted-on,
+.hentry .entry-header .byline,
+.posted-on,
+.byline {
+    margin : 0;
+}
+
+.hentry.type-post .entry-meta {
+    width        : 97%;
+    margin-right : 3%;
+}
+
+.comments-link {
+    display : none;
+}
+
+.cat-links, .tags-links, .comments-link, .edit-link, .posted-on, .byline {
+    padding : 0 0 0 0.3em;
+    margin  : 0.6em 0 0 0;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+    .posted-on, .byline {
+        margin : 0 0 2em 0;
+    }
+
+    .cat-links, .tags-links, .comments-link, .edit-link {
+        margin : 0 0 0 0;
+    }
+}
+
+/* Clear posts table like formatting */
+
+.hentry.type-post .entry-content,
+.hentry.type-page .entry-content,
+.entry-content {
+    width         : 97%;
+    margin-right  : 3%;
+    margin-top    : $d3;
+    margin-bottom : $d4;
+}
+
+/* Combo with options for sorting products */
+
+.storefront-sorting {
+    margin-top    : 0.6em;
+    margin-bottom : 1.5em;
+    margin-right  : 0.9em;
+}
+
+.storefront-sorting form {
+    margin-bottom : 0.3em;
+}
+
+
+
+
+/* --- balagan --- */
+
+
+.woocommerce.columns-4 ul.products {
+    margin : 0 0 0 0;
+}
+
+.quantity .qty {
+    max-width : 4em;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+    /* desktop view */
+    .single-product div.product form.cart .quantity,
+    form.cart div.quantity,
+    div.variations_button div.quantity {
+        float       : left;
+        margin-left : 1.6em;
+    }
+
+    ul.products li.product .button {
+        margin-right : 1.6em;
+    }
+}
+
+.variations_form.list, .variations_form.list table, .variations_form.list td {
+    margin-bottom : 0;
+    margin-top    : -0.9em;
+    padding-top   : 0.6em;
+    text-align    : center;
+}
+
+.single-product div.product table.variations .value {
+    margin-bottom : 0.5em;
+}
+
+.single-product div.product form.cart .button {
+    /*float: none;*/
+    float       : left;
+    margin-left : 1.6em;
+    width       : 67%;
+    min-height  : 2.6em;
+}
+
+div.related.products .variations_form.cart.list div.single_variation_wrap div.variations_button .single_add_to_cart_button,
+div.related.products form.cart .single_add_to_cart_button {
+    width        : 55%;
+    margin-left  : 0;
+    margin-right : 0;
+    font-size    : 0.9em;
+    min-height   : 2.65em;
+}
+
+.single_add_to_cart_button {
+    /*max-width  : 70%;*/
+    /*max-height : 2.6em;*/
+    /*width: 70%;*/
+    /*margin-left: 1.6em;*/
+}
+
+.div.entry-content .div.woocommerce.columns-3 {
+    box-sizing : initial;
+}
+
+.pbosfc_search_post_divider {
+    margin-bottom : 3em;
+}
+
+/* Category/product columns on archives pages (mobile) TODO: wypluc to z php w zaleznosci od ustawien
+*/
+
+.site-main ul.products li.product,
+.site-main .columns-2 ul.products li.product,
+.site-main .columns-3 ul.products li.product,
+.site-main .columns-4 ul.products li.product {
+    width         : 100%;
+    margin-right  : 0%;
+    margin-left   : 0%;
+    margin-bottom : 3em;
+    float         : left;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    .site-main ul.products li.product {
+        /* TODO: wypluc to z php w zaleznosci od ustawien */
+        width        : 31%;
+        margin-right : 2%;
+    }
+
+    .site-main .columns-2 ul.products li.product {
+        width        : 48%;
+        margin-right : 2%;
+    }
+
+    .site-main .columns-3 ul.products li.product {
+        width        : 31%;
+        margin-right : 2%;
+    }
+
+    .site-main .columns-4 ul.products li.product {
+        width        : 23%;
+        margin-right : 2%;
+    }
+}
+
+.widget_nav_menu ul li:before {
+    content      : "";
+    margin-right : 0;
+}
+
+.widget_nav_menu ul li {
+    margin-bottom : 0.9em;
+}
+
+
+
+/* Some fixes...
+*/
+
+table.cart thead {
+    text-indent : 1em;
+}
+
+.page-template-template-fullwidth-php table.cart thead th,
+table.cart td,
+table.cart th {
+    padding : 0.8em 0.8em 0.8em 0.8em;
+}
+
+a.remove {
+    width : auto;
+}
+
+li.mini_cart_item a.remove {
+    width : 1.6em;
+}
+
+#order_review .shipping_method {
+    max-width : 10em;
+}
+
+#reviews .commentlist li .description {
+    padding-bottom : 0;
+}
+
+#reviews .commentlist li {
+    margin-bottom : 1em;
+}
+
+#comments {
+    padding-top : 1.6em;
+}
+
+#comments .comment-list .comment-content {
+    margin-bottom : 0;
+}
+
+#comments .comments-title {
+    margin-bottom : 0.6em;
+}
+
+#comments .comment-list {
+    margin-bottom : 0;
+}
+
+/* Single product basic info
+*/
+
+.single-product div.product .images {
+    margin-top    : 0.5em;
+    margin-bottom : 0;
+    width         : 200px;
+    margin-right  : 2%;
+}
+
+.single-product div.product .woocommerce-product-rating {
+    margin-bottom  : 1em;
+    border-bottom  : 0 solid;
+    padding-bottom : 0.618em;
+}
+
+.single-product div.product .price {
+    margin-top : 1em;
+}
+
+.single-product div.product form.cart {
+    margin-bottom : 0;
+    padding       : 0.5em;
+}
+
+.summary .product_meta {
+    margin-top : 0;
+}
+
+#respond {
+    margin-bottom : 0;
+}
+
+.single-product div.product .woocommerce-tabs {
+    margin-bottom  : 0;
+    padding-bottom : 1em;
+    padding-top    : 2em;
+}
+
+div.related.products {
+    margin-top : 2em;
+}
+
+.single-product div.product .summary {
+    margin-bottom : 2em;
+    padding-right : 0.9em;
+}
+
+/* DESKTOP: START
+*/
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    .woocommerce-pagination {
+        float : initial;
+    }
+
+    /* Single product basic info (desktops)
+    */
+    .single-product div.product .images {
+        width : 40%;
+        float : left;
+    }
+
+    .single-product div.product .summary {
+        width : 57%;
+        float : right;
+    }
+
+    /* Single product description/rewievs/etc layout
+    */
+    .woocommerce-tabs ul.tabs {
+        width        : 22%;
+        margin-right : 2%;
+    }
+
+    .woocommerce-tabs .panel {
+        width         : 75%;
+        padding-right : 0.9em;
+    }
+
+    /* DESKTOP: END */
+}

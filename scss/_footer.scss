@@ -1,0 +1,19 @@
+/**
+ * Footer
+ */
+
+.site-footer {
+    border-top     : 1px solid rgba(0, 0, 0, 0.1);
+    padding-top    : 0;
+    padding-bottom : 0;
+}
+
+.footer-widgets {
+    padding : $d5 0 0 0;
+}
+
+/* Copyright message */
+.site-info {
+    text-align : center;
+    padding    : $d5;
+}

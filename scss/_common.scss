@@ -1,0 +1,30 @@
+/**
+ * Basics
+ */
+
+p {
+    margin : 0 0 $d3 0;
+}
+
+/**
+ * Common, site wide.
+ */
+
+/* Woocommerce messages (info, warning, error) */
+.site-content > .col-full > .woocommerce > :first-child.woocommerce-error,
+.site-content > .col-full > .woocommerce > :first-child.woocommerce-info,
+.site-content > .col-full > .woocommerce > :first-child.woocommerce-message {
+    margin-top    : 1.5em;
+    margin-bottom : 1.5em;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+
+    /* Width of content (including sidebar) */
+    .col-full {
+        max-width    : 1020px;
+        margin-left  : auto;
+        margin-right : auto;
+    }
+
+}

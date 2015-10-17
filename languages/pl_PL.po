@@ -1,9 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: autodbalnia.pl\n"
-"POT-Creation-Date: 2015-10-13 00:45+0200\n"
+"Project-Id-Version: PBO Storefront Compact\n"
+"POT-Creation-Date: 2015-10-15 20:27+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Piotr Boguslawski\n"
+"Language-Team: \n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,33 +18,13 @@ msgstr ""
 "_x:1,2c;_n:1,2;_n_noop:1,2;__ngettext:1,2;__ngettext_noop:1,2;_c,_nc:4c,1,2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.8.5\n"
-"Language-Team: \n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: functions.php:28
-msgid "Continue reading"
-msgstr "Czytaj dalej"
-
-#: functions.php:141
-msgid "Featured products"
-msgstr "Polecane produkty"
-
-#: functions.php:154
-msgid "Products on sale"
-msgstr "Strefa niskich cen"
-
-#: functions.php:176
-msgid "Recent products"
-msgstr "Ostatnio dodane produkty"
-
-#: functions.php:181
-msgid "Best selling products"
-msgstr "Najlepiej sprzedające się produkty"
-
-#: functions.php:186
-msgid "Top rated products"
-msgstr "Najwyżej oceniane produkty"
-
-#: functions.php:232
+#: functions.php:94
 msgid "View Wishlist"
 msgstr "Lista życzeń"
+
+#: inc/structure/post.php:45
+#: woocommerce/single-product/short-description.php:25
+msgid "Continue reading"
+msgstr "Czytaj dalej"
