@@ -1,0 +1,26 @@
+
+// Spacing...
+$d1 : 0.3em; // 0.3235em;
+$d2 : $d1 * 2;
+$d3 : $d1 * 3;
+$d4 : $d1 * 4;
+$d5 : $d1 * 5;
+$d6 : $d1 * 6;
+$d7 : $d1 * 7;
+$d8 : $d1 * 8;
+$d9 : $d1 * 9;
+$d10 : $d1 * 10;
+$d11 : $d1 * 11;
+$d12 : $d1 * 12;
+
+// Minimum width to display desktop layout.
+// It should be 769px because of iPad (1024x768)
+// but in original Storefront theme it is 768px.
+// To fix it. this theme should redefine all stuff
+// from parent theme :(
+//
+// TODO: fix problem with 768px screen(s)
+$min_width_for_desktop : 768px;
+
+// Width of content (including sidebar)
+$content_width : 1010px;

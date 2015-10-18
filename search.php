@@ -34,7 +34,7 @@ get_header(); ?>
 					?>
 				</article><!-- #post-## -->
 
-				<?php if ( 'post' != get_post_type() ) : ?>
+				<?php if ( 'post' != get_post_type() || ! pbosfc_get_option('post_excerpt') ) : ?>
 					<div class="pbosfc_search_post_divider"></div><?php endif ?>
 				<?php
 			endwhile;

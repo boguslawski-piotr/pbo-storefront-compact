@@ -27,13 +27,13 @@ if ( $is_mobile && ! in_array( PBO_User_Device::$device, [ 'iphone' ] ) ) {
  *
  * @return mixed|void
  */
-function pbosfc_get_option( $name ) {
+function pbosfc_get_option_def( $name ) {
 	global $is_mobile;
 
 	$pbosfc_option = [ ];
 
 	// If true then standard Wordpress search will be used instead of Woocommerce products search
-	$pbosfc_option['use_wp_search'] = true;
+	$pbosfc_option['use_wp_search'] = false;
 
 	$pbosfc_option['post_excerpt']        = true;
 	$pbosfc_option['excerpt_image_size']  = 'thumbnail';
@@ -41,7 +41,7 @@ function pbosfc_get_option( $name ) {
 	$pbosfc_option['excerpt_word_count']  = $is_mobile ? 25 : 45;
 	$pbosfc_option['excerpt_end']         = '...';
 
-	$pbosfc_option['products_per_page'] = $is_mobile ? 6 : 15;
+	$pbosfc_option['products_per_page'] = $is_mobile ? 6 : 12;
 	$pbosfc_option['product_columns']   = $is_mobile ? 1 : 3;
 
 	$pbosfc_option['posts_per_page'] = $is_mobile ? 3 : 5;
@@ -51,16 +51,26 @@ function pbosfc_get_option( $name ) {
 	$pbosfc_option['post_featured_image']      = false;
 	$pbosfc_option['post_featured_image_size'] = 'full';
 
-	$pbosfc_option['page_breadcrumb'] = false;
-	$pbosfc_option['post_breadcrumb'] = true;
+	$pbosfc_option['page_breadcrumb']    = true;
+	$pbosfc_option['post_breadcrumb']    = true;
+	$pbosfc_option['product_breadcrumb'] = true;
 
-	return get_option( 'pbosfc_' . $name, $pbosfc_option[ $name ] );
+	if ( isset( $pbosfc_option[ $name ] ) ) {
+		return $pbosfc_option[ $name ];
+	}
+
+	return false;
+}
+
+function pbosfc_get_option( $name ) {
+	return get_theme_mod( 'pbosfc_' . $name, pbosfc_get_option_def( $name ) );
 }
 
 /**
  * @param $name
  * @param $val
  */
+/*
 function pbosfc_set_option( $name, $val ) {
 	$name = 'pbosfc_' . $name;
 	if ( get_option( $name ) !== false ) {
@@ -73,6 +83,7 @@ function pbosfc_set_option( $name, $val ) {
 		add_option( $name, $val, $deprecated, $autoload );
 	}
 }
+*/
 
 /**
  *

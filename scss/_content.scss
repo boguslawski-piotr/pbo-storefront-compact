@@ -1,0 +1,103 @@
+
+// Everything between header and footer
+
+.site-content {
+    border-top    : 1px solid rgba(0, 0, 0, 0.1);
+    padding       : $d4 0 $d4 0;
+    margin-top    : 0;
+    margin-bottom : 0;
+}
+
+// Content (excluding sidebar)
+
+.site-main {
+    padding-top: 0.3em;
+    margin-bottom : 0;
+}
+
+.content-area,
+.widget-area {
+    margin-bottom : 0;
+}
+
+.hentry {
+    margin-bottom  : 0;
+    padding-bottom : 0;
+    border-bottom  : 0;
+}
+
+// Post/page/etc. headers:
+//
+// page:             page|hentry -> entry-header -> h1 entry-title -> entry-content
+// post (on list):
+// post (single):    post -> entry-header -> h1 entry-title -> posted-on -> byline -> entry-meta -> entry-content
+// products (many) : product -> h1 page-title -> storefront-sorting -> products -> storefront-sorting
+
+.hentry .entry-header,
+.product .entry-header {
+    margin-bottom : $d1;
+    border-bottom : 0;
+}
+
+h1.page-title,
+.hentry .entry-header h1,
+.post .entry-header h1,
+.product .entry-header h1 {
+    margin         : 0 0 $d2 0;
+    border-bottom  : 1px solid rgba(0, 0, 0, .05);
+    padding-bottom : 0;
+}
+
+.post .entry-header h1 {
+    // because of posted-on and byline -> inside entry-header span
+    margin : 0 0 0 0;
+}
+
+// Posts and pages meta
+
+.hentry .entry-header .posted-on,
+.hentry .entry-header .byline,
+.posted-on,
+.byline {
+    margin : 0;
+}
+
+.hentry.type-post .entry-meta {
+    width        : 97%;
+    margin-right : 3%;
+}
+
+.comments-link {
+    display : none;
+}
+
+.cat-links, .tags-links, .comments-link, .edit-link, .posted-on, .byline {
+    padding : 0 0 0 0.3em;
+    margin  : 0.6em 0 0 0;
+}
+
+@media screen and (min-width : $min_width_for_desktop) {
+    .posted-on, .byline {
+        margin : 0 0 2em 0;
+    }
+
+    .cat-links, .tags-links, .comments-link, .edit-link {
+        margin : 0 0 0 0;
+    }
+}
+
+// Clear posts table like formatting
+
+.hentry.type-post .entry-content,
+.hentry.type-page .entry-content,
+.entry-content {
+    width         : 97%;
+    margin-right  : 3%;
+    margin-top    : $d3;
+    margin-bottom : $d4;
+}
+
+
+.no-results input[type="search"] {
+    width: 80%;
+}

@@ -23,29 +23,34 @@ function storefront_post_header() { ?>
 
 
 /**
- *
+ * Based (with preserved compatibility) on Storefront Blog Excerpts plugin.
  */
 function pbosfc_post_excerpt() {
-	?>
-	<div class="entry-content" itemprop="articleBody">
-		<?php
-		if ( has_post_thumbnail() ) {
-			$thumb_size = pbosfc_get_option('excerpt_image_size');
-			$img_class  = ( $thumb_size == 'thumbnail' ) ? apply_filters( 'woa_sf_blog_excerpt_image_float', pbosfc_get_option('excerpt_image_float') ) : '';
-			the_post_thumbnail( $thumb_size, array(
-				'itemprop' => 'image',
-				'class'    => "attachment-$thumb_size $img_class"
-			) );
-		}
-		$content = do_shortcode( ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt() : get_the_content() );
-		$content = wp_trim_words( $content, pbosfc_get_option('excerpt_word_count'), pbosfc_get_option('excerpt_end') );
-		echo apply_filters( 'the_excerpt', $content );
+	if ( ! pbosfc_get_option('post_excerpt') ) {
+		storefront_post_content();
+	}
+	else {
 		?>
-		<p class="read-more"><a class="button"
-		                        href="<?php the_permalink(); ?>"><?php echo __( 'Continue reading', 'pbosfc' ); ?></a>
-		</p>
-	</div><!-- .entry-content -->
-	<?php
+		<div class="entry-content" itemprop="articleBody">
+			<?php
+			if ( has_post_thumbnail() ) {
+				$thumb_size = pbosfc_get_option( 'excerpt_image_size' );
+				$img_class  = ( $thumb_size == 'thumbnail' ) ? apply_filters( 'woa_sf_blog_excerpt_image_float', pbosfc_get_option( 'excerpt_image_float' ) ) : '';
+				the_post_thumbnail( $thumb_size, array(
+					'itemprop' => 'image',
+					'class'    => "attachment-$thumb_size $img_class"
+				) );
+			}
+			$content = do_shortcode( ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt() : get_the_content() );
+			$content = wp_trim_words( $content, pbosfc_get_option( 'excerpt_word_count' ), pbosfc_get_option( 'excerpt_end' ) );
+			echo apply_filters( 'the_excerpt', $content );
+			?>
+			<p class="read-more"><a class="button"
+			                        href="<?php the_permalink(); ?>"><?php echo __( 'Continue reading', 'pbosfc' ); ?></a>
+			</p>
+		</div><!-- .entry-content -->
+		<?php
+	}
 }
 
 

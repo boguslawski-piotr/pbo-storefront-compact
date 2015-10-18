@@ -35,11 +35,11 @@ if ( defined( 'YITH_WCWL' ) ) {
  * Posts
  */
 
-if ( pbosfc_get_option('post_excerpt') ) {
-	// Apply the excerpt replacing the content block on the archive pages
-	remove_action( 'storefront_loop_post', 'storefront_post_content', 30 );
-	add_action( 'storefront_loop_post', 'pbosfc_post_excerpt', 30 );
-}
+
+// Apply the excerpt replacing the content block on the archive pages
+remove_action( 'storefront_loop_post', 'storefront_post_content', 30 );
+add_action( 'storefront_loop_post', 'pbosfc_post_excerpt', 30 );
+
 
 /**
  * Footer

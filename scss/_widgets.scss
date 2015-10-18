@@ -1,6 +1,5 @@
-/**
- *
- */
+
+//
 
 .top-header-1-widget-region {
     margin  : 0;
@@ -13,9 +12,7 @@
     font-size : 0.9em;
 }
 
-/**
- *
- */
+//
 
 .top-header-2-widget-region {
     margin  : 0;
@@ -28,9 +25,7 @@
     font-size : 0.9em;
 }
 
-/**
- * This is a place for advertising, classifieds, messages, etc.
- */
+//
 
 .header-widget-region {
     border-top  : 1px solid rgba(0, 0, 0, 0.1);
@@ -42,9 +37,7 @@
     margin-bottom : 0;
 }
 
-/**
- *
- */
+//
 
 .bottom-header-1-widget-region {
     border-top : 1px solid rgba(0, 0, 0, 0.1);
@@ -58,9 +51,7 @@
     font-size : 0.9em;
 }
 
-/**
- *
- */
+// Top Menu(s)
 
 .top-menu-wrap {
     display : none;
@@ -70,7 +61,7 @@
 
     .top-menu-wrap {
         display          : block;
-        background-color : #fcfcfc;
+        /* background-color : #fcfcfc; */
     }
 
     .left-top-menu-wrap {
@@ -78,7 +69,6 @@
         float    : left;
         width    : 50%;
         margin   : 0 -0.3em 0 -0.3em;
-        /*border: 1px solid red;*/
     }
 
     .right-top-menu-wrap {
@@ -86,7 +76,6 @@
         float    : left;
         width    : 50%;
         margin   : 0 -1.2em 0 0.9em;
-        /*border: 1px solid blue;*/
     }
 
     .left-top-menu,
@@ -169,7 +158,6 @@
         font-size : 0.9em;
         width     : auto;
         float     : left;
-        /*margin: 0 0 0 0;*/
     }
 
     .right-top-menu .menu {
@@ -191,7 +179,7 @@
 
     .left-top-menu .menu > li.menu-item-has-children > a:after,
     .right-top-menu .menu > li.menu-item-has-children > a:after {
-        /* Small sign (arrow pointing down) on menu item with submenu */
+        // Small sign (arrow pointing down) on menu item with submenu
         content     : "\f107";
         font-family : "FontAwesome";
         margin-left : 0.6em;
@@ -241,9 +229,7 @@
     }
 }
 
-/**
- * Sidebar
- */
+// Sidebar
 
 .left-sidebar .widget-area {
     margin-top : $d3;
@@ -251,10 +237,14 @@
 
 .right-sidebar .widget-area {
     margin-top : $d3;
-    font-size: 1em;
+    font-size  : 1em;
 }
 
 @media screen and (min-width : $min_width_for_desktop) {
+
+    //.home.right-sidebar .widget-area {
+        //margin-top : $d6;
+    //}
 
     .right-sidebar .content-area {
         border-right : 1px solid rgba(0, 0, 0, 0.05);
@@ -272,61 +262,89 @@
         margin-left  : 0;
     }
 
+    // Delete set above properties for fullwidth template
+    .page-template-template-fullwidth-php .content-area {
+        border-right: 0;
+        border-left: 0;
+        width: 100%;
+        padding: 0;
+    }
+
 }
 
-/*
- * Widgets (on sidebar(s)
- */
+// Widgets (on sidebar(s)
 
-.widget h3.widget-title, .widget h2.widget-ttitle {
+.widget {
+    margin : 0 0 $d6;
+}
+
+.widget-area {
+    margin-bottom : $d4;
+}
+
+.widget h2.widget-ttitle,
+.widget h3.widget-title,
+.widget h4.widget-title {
     padding             : 0 0 0 0;
+    margin              : 0 0 0.9em 0;
     border-bottom-width : 1px;
 }
 
-//.widget_product_categories ul li {
-//    font-size : 16px;
-//}
+// Woocommerce widgets
 
-.widget {
-    margin : 0 0 1.8em;
-}
-
-.dropdown_product_tag, .dropdown_product_cat {
+.dropdown_product_tag,
+.dropdown_product_cat {
     font-size      : 1.2em;
     width          : 100%;
-    padding-top    : 0.2em;
-    padding-bottom : 0.2em;
+    padding-top    : 0.3em;
+    padding-bottom : 0.3em;
 }
 
-/* Cart widget tweaks ;)
-*/
+.widget_recently_viewed_products ul.product_list_widget,
+.widget_top_rated_products ul.product_list_widget,
+.widget_products ul.product_list_widget,
+.widget_recent_reviews ul {
+    font-size : 1.2em;
+}
+
+.product_list_widget li {
+    padding : 0.6em 0 0.6em 0;
+}
+
+// Cart widget tweaks ;)
 
 .widget_shopping_cart li {
-    font-size : 0.8em;
+    font-size : 0.9em;
 }
 
 .widget_shopping_cart .product_list_widget li {
-    padding-left  : 0.63em;
-    padding-right : 0.63em;
+    padding-left  : 0.6em;
+    padding-right : 0.6em;
 }
 
 .widget_shopping_cart .product_list_widget li .quantity {
-    padding-left : 1.7em;
+    padding-left : 1.5em;
     float        : right;
 }
 
 .widget_shopping_cart .product_list_widget li .variation {
-    margin-bottom : -2em;
-    margin-top    : -1em;
-    padding-left  : 2em;
-}
-
-.widget_shopping_cart .product_list_widget li .variation-pojemno {
-    margin-bottom : -1em;
-    margin-top    : 0.2em;
-    padding-left  : 2em;
+    margin-bottom : -1.8em;
+    margin-top    : -0.9em;
+    padding-left  : 1.8em;
 }
 
 .widget_shopping_cart .pbo_move_to_wishlist {
-    margin-left : 1.6em;
+    margin-left : 1.5em;
 }
+
+// Menus as a widgets
+
+.widget_nav_menu ul li:before {
+    content      : "";
+    margin-right : 0;
+}
+
+.widget_nav_menu ul li {
+    margin-bottom : 0.9em;
+}
+

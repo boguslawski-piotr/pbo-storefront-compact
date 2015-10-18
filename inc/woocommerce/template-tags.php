@@ -12,6 +12,9 @@ function pbosfc_woocommerce_breadcrumb( $args = array() ) {
 	elseif ( 'post' === get_post_type() ) {
 		$display = pbosfc_get_option('post_breadcrumb');
 	}
+	elseif ( 'product' === get_post_type() ) {
+		$display = pbosfc_get_option('product_breadcrumb');
+	}
 
 	if ( $display ) {
 		woocommerce_breadcrumb( $args );

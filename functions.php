@@ -28,6 +28,7 @@ $pbosfc_inc_directory = get_stylesheet_directory() . '/inc/';
  */
 
 require_once $pbosfc_inc_directory . 'setup.php';
+require_once $pbosfc_inc_directory . 'customizer/setup.php';
 
 /**
  * Components
@@ -42,6 +43,7 @@ require_once $pbosfc_inc_directory . 'woocommerce/shortcodes/products.php';
 require_once $pbosfc_inc_directory . 'woocommerce/template-tags.php';
 
 require_once $pbosfc_inc_directory . 'customizer/functions.php';
+require_once $pbosfc_inc_directory . 'customizer/frontend.php';
 
 /**
  * Initialization
@@ -60,10 +62,8 @@ add_action( 'after_setup_theme',
 add_action( 'init',
 	function () {
 		global $pbosfc_inc_directory;
-
 		require_once $pbosfc_inc_directory . 'structure/hooks.php';
 		require_once $pbosfc_inc_directory . 'woocommerce/hooks.php';
-
 	},
 	999
 );

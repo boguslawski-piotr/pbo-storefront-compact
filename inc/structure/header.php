@@ -81,6 +81,34 @@ function pbosfc_topmenu() {
 }
 
 /**
+ *
+ */
+function storefront_site_branding() {
+	$is_logo  = pbosfc_get_option( 'site_logo' );
+	$logo_uri = pbosfc_get_option( 'site_logo_image' );
+	if ( $is_logo && $logo_uri ) {
+		if ( is_ssl() ) {
+			$logo_uri = str_replace( 'http://', 'https://', $logo_uri );
+		}
+		?>
+		<div class="site-logo-anchor">
+			<a href="<?php bloginfo( 'url' ); ?>"><img src="<?php echo esc_html($logo_uri); ?>" style="display:inline-block;"></a>
+		</div>
+		<?php
+	} else if ( function_exists( 'jetpack_has_site_logo' ) && jetpack_has_site_logo() ) {
+		jetpack_the_site_logo();
+	} else { ?>
+		<div class="site-branding">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"
+			                          rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php if ( '' != get_bloginfo( 'description' ) ) { ?>
+				<p class="site-description"><?php echo bloginfo( 'description' ); ?></p>
+			<?php } ?>
+		</div>
+	<?php }
+}
+
+/**
  * Original Storefront secondary Navigation is DISABLED
  */
 function storefront_secondary_navigation() {
