@@ -7,7 +7,7 @@
  * @version     1.6.4
  */
 /**
- * PB: added link to full description
+ * PBO: added link to full description
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

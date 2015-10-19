@@ -1,11 +1,9 @@
 <?php
 /**
  * The template for displaying search results pages.
- *
- * @package storefront
  */
 /**
- * PB: No global title & little hack with posts titles ;)
+ * PBO: No global title & little hack with posts titles ;)
  *
  */
 

@@ -12,20 +12,26 @@
 
  Text Domain:  storefront
  Text Domain:  pbosfc
+ Domain Path: /languages/
 */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
 
-define( 'PBOSFC_FULL_NAME', 'PBO Storefront Compact' );
 define( 'PBOSFC_VERSION', "1.0.0" );
-
-include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-$pbosfc_inc_directory = get_stylesheet_directory() . '/inc/';
+define( 'PBOSFC', 1 );
 
 /**
  * Setup, settings, etc.
  */
+
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+	function is_woocommerce_activated() {
+		return class_exists( 'woocommerce' ) ? true : false;
+	}
+}
+
+$pbosfc_inc_directory = get_stylesheet_directory() . '/inc/';
 
 require_once $pbosfc_inc_directory . 'setup.php';
 require_once $pbosfc_inc_directory . 'customizer/setup.php';
@@ -39,7 +45,7 @@ require_once $pbosfc_inc_directory . 'structure/page.php';
 require_once $pbosfc_inc_directory . 'structure/post.php';
 require_once $pbosfc_inc_directory . 'structure/footer.php';
 
-require_once $pbosfc_inc_directory . 'woocommerce/shortcodes/products.php';
+require_once $pbosfc_inc_directory . 'woocommerce/shortcodes.php';
 require_once $pbosfc_inc_directory . 'woocommerce/template-tags.php';
 
 require_once $pbosfc_inc_directory . 'customizer/functions.php';
@@ -50,11 +56,11 @@ require_once $pbosfc_inc_directory . 'customizer/frontend.php';
  */
 
 add_action( 'after_setup_theme',
-	/* Initialize theme... */
 	function () {
 		load_theme_textdomain( 'pbosfc', dirname( __FILE__ ) . '/languages/' );
 		pbosfc_register_menus();
 		pbosfc_register_sidebars();
+		pbosfc_register_shortcodes();
 	},
 	999
 );
@@ -73,30 +79,33 @@ add_action( 'init',
  * Stylesheets, scripts
  */
 
-function pbosfc_enqueue_styles() {
-	// Load parent stylesheet first
-	wp_enqueue_style( 'storefront-style', trailingslashit( get_template_directory_uri() ) . 'style.css', false );
+add_action( 'wp_enqueue_scripts',
+	function () {
+		//include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-	// Load active theme stylesheet but later than specified plugins
-	wp_enqueue_style( 'pbosfc-style', get_stylesheet_uri(),
-		[
-			'storefront-style',
-			'storefront-woocommerce-style',
-			'easy_social_share_buttons-frontend',
-			'yith-wcwl-main',
-			'su-box-shortcodes',
-			'searchwp-live-search',
-			'simple-favorites',
-			'basecss',                                 // EU Cookie Law
-		]
-	);
-}
+		// Load parent stylesheet first
+		wp_enqueue_style( 'storefront-style', trailingslashit( get_template_directory_uri() ) . 'style.css', false );
 
-add_action( 'wp_enqueue_scripts', 'pbosfc_enqueue_styles' );
+		// Load active theme stylesheet but later than specified plugins
+		wp_enqueue_style( 'pbosfc-style', get_stylesheet_uri(),
+			[
+				'storefront-style',
+				'storefront-woocommerce-style',
+				'easy_social_share_buttons-frontend',
+				'yith-wcwl-main',
+				'su-box-shortcodes',
+				'searchwp-live-search',
+				'simple-favorites',
+				'basecss', // EU Cookie Law
+			]
+		);
+	}
+);
 
 
 /**
- * Hack for YITH Wishlist, because it not work correctly with advanced Add To Cart funcionality (see woocommerce/loop/add-to-cart.php)
+ * Hack for YITH Wishlist, because this plugin does not work correctly
+ * with advanced Add To Cart functionality (see woocommerce/loop/add-to-cart.php)
  */
 
 $add_to_cart_template_from_wishlist = 0;

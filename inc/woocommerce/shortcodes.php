@@ -3,58 +3,63 @@
  * @author Piotr Boguslawski
  */
 
-add_shortcode( 'pbosfc_featured_products', 'pbosfc_featured_products' );
-add_shortcode( 'pbosfc_sale_products', 'pbosfc_sale_products' );
-add_shortcode( 'pbosfc_recent_products', 'pbosfc_recent_products' );
-add_shortcode( 'pbosfc_best_selling_products', 'pbosfc_best_selling_products' );
-add_shortcode( 'pbosfc_top_rated_products', 'pbosfc_top_rated_products' );
+function pbosfc_register_woocommerce_shortcodes() {
+	if ( defined( 'PBO_TOOLS' ) ) {
+		add_shortcode( 'pbosfc_featured_products', 'pbosfc_featured_products' );
+		add_shortcode( 'pbosfc_sale_products', 'pbosfc_sale_products' );
+		add_shortcode( 'pbosfc_recent_products', 'pbosfc_recent_products' );
+		add_shortcode( 'pbosfc_best_selling_products', 'pbosfc_best_selling_products' );
+		add_shortcode( 'pbosfc_top_rated_products', 'pbosfc_top_rated_products' );
+	}
 
-add_shortcode( 'pbosfc_cart_link', 'pbosfc_storefront_cart_link' );
+	add_shortcode( 'pbosfc_mini_cart', 'pbosfc_mini_cart' );
 
-add_shortcode( 'pbosfc_product_tags', 'pbosfc_product_tags' );
+	add_shortcode( 'pbosfc_product_tags', 'pbosfc_product_tags' );
+}
 
-function pbosfc_storefront_cart_link( $atts ) {
+
+function pbosfc_mini_cart( $atts ) {
 	ob_start();
 	storefront_header_cart();
 
 	return ob_get_clean();
 }
 
-function pbosfc_xxx_products( $atts, $func ) {
+function pbosfc_list_products( $atts, $func ) {
 	$latts = shortcode_atts( [
 		'class'    => '',
 		'max_rows' => 1,
-		'caption'  => '',
+		'title'    => '',
 	], $atts );
 
 	ob_start();
-	call_user_func( $func, $latts['class'], $latts['max_rows'], pbosfc_get_option( 'product_columns' ), $latts['caption'] );
+	call_user_func( $func, $latts['class'], $latts['max_rows'], pbosfc_get_option( 'product_columns' ), $latts['title'] );
 
 	return ob_get_clean();
 }
 
 function pbosfc_featured_products( $atts ) {
-	return pbosfc_xxx_products( $atts, 'pbo_featured_products' );
+	return pbosfc_list_products( $atts, 'pbo_featured_products' );
 }
 
 
 function pbosfc_sale_products( $atts ) {
-	return pbosfc_xxx_products( $atts, 'pbo_sale_products' );
+	return pbosfc_list_products( $atts, 'pbo_sale_products' );
 }
 
 
 function pbosfc_recent_products( $atts ) {
-	return pbosfc_xxx_products( $atts, 'pbo_recent_products' );
+	return pbosfc_list_products( $atts, 'pbo_recent_products' );
 }
 
 
 function pbosfc_best_selling_products( $atts ) {
-	return pbosfc_xxx_products( $atts, 'pbo_best_selling_products' );
+	return pbosfc_list_products( $atts, 'pbo_best_selling_products' );
 }
 
 
 function pbosfc_top_rated_products( $atts ) {
-	return pbosfc_xxx_products( $atts, 'pbo_top_rated_products' );
+	return pbosfc_list_products( $atts, 'pbo_top_rated_products' );
 }
 
 function pbosfc_product_tags( $atts ) {
@@ -99,11 +104,11 @@ function pbosfc_product_dropdown_tags() {
 		);"
 	);
 
-	$html = '<option value="">' . esc_html( apply_filters( 'pbosfc_product_dropdown_tags_title', __( 'Select a tag', 'pbosfc' ) ) ) . '</option>';
+	$html = '<option value="">' . wp_kses_post( apply_filters( 'pbosfc_product_dropdown_tags_title', __( 'Select a tag', 'pbosfc' ) ) ) . '</option>';
 	foreach ( $tags as $k => $v ) {
 		$slug  = str_replace( 'tag=', '', strstr( strstr( $v, 'tag=' ), "'", true ) );
 		$count = str_replace( "title='", '', strstr( strstr( $v, 'title=' ), " ", true ) );
-		$html  = $html . '<option value="' . $slug . '">' . $v . ' (' . $count . ')</option>';
+		$html  = $html . '<option value="' . esc_attr( $slug ) . '">' . $v . ' (' . (integer) $count . ')</option>';
 	}
 	$html = '<select name="product_tag" class="dropdown_product_tag">' . $html . '</select>';
 	echo $html;

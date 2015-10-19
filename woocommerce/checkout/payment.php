@@ -7,7 +7,7 @@
  * @version     2.4.7
  */
 /**
- * PB: added style 'update_totals_on_change' to make
+ * PBO: added style 'update_totals_on_change' to make
  * 'WooCommerce Extended Coupon Features' plugin
  * work correctly with auto coupons with payment
  * method filter used

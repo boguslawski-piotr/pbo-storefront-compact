@@ -4,7 +4,7 @@
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  */
 /**
- * PBO: Page title shows as a breadcrumb when real breadcrumbs are disabled.
+ * PBO: Shows page title as a breadcrumb when real breadcrumbs are disabled.
  * TODO: sprawdzic jak bedzie wygladac bez Woocommerce
  */
 get_header();

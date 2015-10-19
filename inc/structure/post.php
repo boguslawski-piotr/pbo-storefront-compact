@@ -35,14 +35,16 @@ function pbosfc_post_excerpt() {
 			<?php
 			if ( has_post_thumbnail() ) {
 				$thumb_size = pbosfc_get_option( 'excerpt_image_size' );
-				$img_class  = ( $thumb_size == 'thumbnail' ) ? apply_filters( 'woa_sf_blog_excerpt_image_float', pbosfc_get_option( 'excerpt_image_float' ) ) : '';
-				the_post_thumbnail( $thumb_size, array(
-					'itemprop' => 'image',
-					'class'    => "attachment-$thumb_size $img_class"
-				) );
+				if ( $thumb_size !== 'none' ) {
+					$img_class = ( $thumb_size == 'thumbnail' ) ? apply_filters( 'woa_sf_blog_excerpt_image_float', pbosfc_get_option( 'excerpt_image_float' ) ) : '';
+					the_post_thumbnail( $thumb_size, array(
+						'itemprop' => 'image',
+						'class'    => "attachment-$thumb_size $img_class"
+					) );
+				}
 			}
 			$content = do_shortcode( ( has_excerpt( get_the_ID() ) ) ? get_the_excerpt() : get_the_content() );
-			$content = wp_trim_words( $content, pbosfc_get_option( 'excerpt_word_count' ), pbosfc_get_option( 'excerpt_end' ) );
+			$content = wp_trim_words( $content, pbosfc_get_option( 'excerpt_word_count' ), __( '...', 'pbosfc' ) );
 			echo apply_filters( 'the_excerpt', $content );
 			?>
 			<p class="read-more"><a class="button"
@@ -62,8 +64,8 @@ function storefront_post_content() {
 	?>
 	<div class="entry-content" itemprop="articleBody">
 		<?php
-		if ( pbosfc_get_option('post_featured_image') ) {
-			storefront_post_thumbnail( $a_settings['post_featured_image_size'] );
+		if ( pbosfc_get_option('post_featured_image_size') != 'none' ) {
+			storefront_post_thumbnail( pbosfc_get_option('post_featured_image_size') );
 		}
 
 		the_content(

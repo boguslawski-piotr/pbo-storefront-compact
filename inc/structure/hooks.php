@@ -22,7 +22,7 @@ add_action( 'storefront_before_header', 'pbosfc_topheader_1', 200 );
 add_action( 'storefront_before_header', 'pbosfc_topmenu', 300 );
 add_action( 'storefront_before_header', 'pbosfc_topheader_2', 400 );
 
-// Change fields order on mobile view: secondary menu first then search box
+// Change fields order on mobile view: handheld menu then search box
 remove_action( 'storefront_header', 'storefront_product_search', 40 );
 add_action( 'storefront_header', 'pbosfc_search', 55 );
 
@@ -36,7 +36,7 @@ if ( defined( 'YITH_WCWL' ) ) {
  */
 
 
-// Apply the excerpt replacing the content block on the archive pages
+// Apply the excerpt functionality
 remove_action( 'storefront_loop_post', 'storefront_post_content', 30 );
 add_action( 'storefront_loop_post', 'pbosfc_post_excerpt', 30 );
 
@@ -45,4 +45,4 @@ add_action( 'storefront_loop_post', 'pbosfc_post_excerpt', 30 );
  * Footer
  */
 
-add_action( 'storefront_before_footer', 'pbosfc_bottomheader', 200 );
+add_action( 'storefront_before_footer', 'pbosfc_footer_bar', 200 );

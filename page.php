@@ -8,7 +8,7 @@
  * different template.
  */
 /**
- * PBO: If breadcrumbs on pages are enabled then shows Homepage text here also (as a breadcrumb).
+ * PBO: If breadcrumb on pages is enabled then show Homepage text here (as a breadcrumb).
  */
 get_header();
 

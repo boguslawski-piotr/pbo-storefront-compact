@@ -2,12 +2,12 @@
 /**
  *
  */
-function pbosfc_bottomheader() {
-	if ( is_active_sidebar( 'bottom-header-1' ) ) {
+function pbosfc_footer_bar() {
+	if ( is_active_sidebar( 'footer-bar-1' ) ) {
 		?>
-		<div class="bottom-header-1-widget-region" role="complementary">
+		<div class="footer-bar-1-widget-region" role="complementary">
 			<div class="col-full">
-				<?php dynamic_sidebar( 'bottom-header-1' ); ?>
+				<?php dynamic_sidebar( 'footer-bar-1' ); ?>
 			</div>
 		</div>
 		<?php
