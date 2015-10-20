@@ -7,7 +7,7 @@
  * @version     1.6.4
  */
 /**
- * PB: SKU after other metas and only if exists
+ * PBO: SKU after other meta(s) and only if exists
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -37,8 +37,12 @@ if ( class_exists( 'WC_Product_Ex' ) ) {
 
 	<?php if ( wc_product_sku_enabled() && ( $product->get_sku() ) ) : ?>
 
-		<span class="sku_wrapper"><?php _e( 'SKU:', 'woocommerce' ); ?> <span class="sku"
-		                                                                      itemprop="sku"><?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?></span></span>
+		<span class="sku_wrapper">
+			<?php _e( 'SKU:', 'woocommerce' ); ?>
+			<span class="sku" itemprop="sku">
+				<?php echo ( $sku = $product->get_sku() ) ? $sku : __( 'N/A', 'woocommerce' ); ?>
+			</span>
+		</span>
 
 	<?php endif; ?>
 
