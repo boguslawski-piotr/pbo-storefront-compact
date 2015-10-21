@@ -226,6 +226,29 @@ function pbosfc_add_customizer_css() {
 			color: $onsale_sign_text_color;
 		}
 	";
+
+	// Some fixes for Firefox (on Linux)
+
+	$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : '';
+	if ( (bool) preg_match( "/firefox/i", $user_agent ) ) {
+		$styles = $styles . "
+			/*@media screen and ( min-width: 768px ) {*/
+				.site-branding h1 {
+					font-size : 1.33em;
+				}
+
+				.site-header-wishlist a {
+					font-size : 0.6em;
+				}
+
+				.woocommerce-active .site-header .main-navigation,
+				.site-header .main-navigation {
+					font-size : 1em;
+				}
+			/*}*/
+		";
+	}
+
 	$styles = pbo_compact_css( $styles );
 	wp_add_inline_style( 'pbosfc-style', apply_filters( 'pbosfc_inline_styles', $styles ) );
 }
