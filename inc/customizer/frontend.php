@@ -30,6 +30,7 @@ function pbosfc_add_customizer_css() {
 	$main_navigation_1level_link_color       = $header_link_color; //'#ffffff';
 	$main_navigation_2level_background_color = $header_background_color; //'#2c2d33';
 	$main_navigation_2level_link_color       = $header_link_color; //'#ffffff';
+	$main_navigation_text_align = pbosfc_get_option( 'main_navigation_text_align' );
 
 	$site_title_link_color = storefront_sanitize_hex_color( get_theme_mod( 'pbosfc_site_title_link_color', pbosfc_get_option_def( 'site_title_link_color' ) ) );
 	$site_title_text_color = storefront_sanitize_hex_color( get_theme_mod( 'pbosfc_site_title_text_color', pbosfc_get_option_def( 'site_title_text_color' ) ) );
@@ -153,6 +154,11 @@ function pbosfc_add_customizer_css() {
 
 		@media screen and ( min-width: 768px ) {
 
+			.woocommerce-active .site-header .main-navigation,
+			.site-header .main-navigation {
+				text-align: $main_navigation_text_align
+			}
+
 			/* second level, desktops */
 
 			.main-navigation ul.menu ul li a {
@@ -234,7 +240,7 @@ function pbosfc_add_customizer_css() {
 		$styles = $styles . "
 			/*@media screen and ( min-width: 768px ) {*/
 				.site-branding h1 {
-					font-size : 1.33em;
+					font-size : 1.35em;
 				}
 
 				.site-header-wishlist a {
@@ -243,7 +249,7 @@ function pbosfc_add_customizer_css() {
 
 				.woocommerce-active .site-header .main-navigation,
 				.site-header .main-navigation {
-					font-size : 1em;
+					font-size : 1.05em;
 				}
 			/*}*/
 		";

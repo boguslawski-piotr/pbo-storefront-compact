@@ -42,6 +42,10 @@ function pbosfc_get_option_def( $name ) {
 	$pbosfc_option['top_menu_background_color']  = '#f3f3f3';
 	$pbosfc_option['top_menu_1level_link_color'] = '#96588a';
 
+	// Main menu
+
+	$pbosfc_option['main_navigation_text_align'] = 'center';
+
 	// Header
 
 	$pbosfc_option['site_logo']       = false;

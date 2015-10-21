@@ -255,6 +255,26 @@ function pbosfc_customize_register( $wp_customize ) {
 		'settings' => 'pbosfc_right_top_menu_align',
 	] );
 
+	$wp_customize->add_control( new Arbitrary_Storefront_Control( $wp_customize, 'pbosfc_divider_m0', array(
+		'section' => 'pbosfc_menus',
+		'type'    => 'divider',
+	) ) );
+
+	$wp_customize->add_setting( 'pbosfc_main_navigation_text_align', array(
+		'default' => pbosfc_get_option_def( 'main_navigation_text_align' ),
+	) );
+	$wp_customize->add_control( 'pbosfc_main_navigation_text_align', [
+		'section'  => 'pbosfc_menus',
+		'type'     => 'select',
+		'choices'  => [
+			'center' => __( 'Center', 'pbosfc' ),
+			'left'   => __( 'Left', 'pbosfc' ),
+			'right'  => __( 'Right', 'pbosfc' )
+		],
+		'label'    => __( 'Main Menu alignment', 'pbosfc' ),
+		'settings' => 'pbosfc_main_navigation_text_align',
+	] );
+
 	/**
 	 * Content
 	 */
