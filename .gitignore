@@ -1,1 +1,5 @@
 /style.css.map
+*.log
+.htaccess
+sitemap.xml
+sitemap.xml.gz
